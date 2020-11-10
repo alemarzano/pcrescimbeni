@@ -1,0 +1,192 @@
+@import './miscelaneas';
+
+
+/* TIMELINE
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline {
+   white-space: nowrap;
+   overflow-x: hidden;
+
+   // width: 1140px;
+   ol {
+      font-size: 0;
+      width: 100vw;
+      padding: 250px 0;
+      transition: all 1s;
+
+      li {
+         position: relative;
+         display: inline-block;
+         list-style-type: none;
+         width: 280px;
+         background: $blue-500;
+         border-radius: 8px;
+
+         &:last-child {
+            width: 280px;
+         }
+
+         &:not(:first-child) {
+            margin-left: 14px;
+         }
+
+         &:not(:last-child) h6 {
+            position: absolute;
+            top: 50%;
+            left: calc(100% + 1px);
+            bottom: 0;
+            transform: translateY(-50%);
+            background-color: $blue-700;
+            color: $white;
+            font-size: 24px;
+         }
+
+         div {
+            position: absolute;
+            width: 280px;
+            padding: 8px;
+            white-space: normal;
+            display: flex;
+            align-items: start;
+
+            img {
+               width:auto;
+               max-height: 104px;
+            }
+            p {
+               color:$blue-700;
+               font-size: 14px;
+               text-align: left;
+               margin-bottom: 0;
+            }
+         }
+         
+         &:nth-child(even) div {
+            top: -16px;
+            transform: translateY(-100%);
+            justify-content: flex-end;
+            time {
+               top: 100%;
+               border-width: 8px 8px 0 0;
+               border-color: white transparent transparent transparent;
+            }
+         }
+
+         &:nth-child(odd) div {
+            top: calc(100% + 16px);
+            justify-content: flex-start;
+            
+         }
+
+         time {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: left;
+            color:$white;
+            padding-left:16px;
+            
+         }
+      }
+   }
+}
+
+
+/* TIMELINE ARROWS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.arrows {
+   display: flex;
+   justify-content: center;
+   margin-bottom: 20px;
+   .arrow {
+      background-color: transparent;
+      border:none;
+      &.arrow__prev {
+         margin-right: 20px;
+      }
+
+      &.disabled {
+         opacity: .5;
+      }
+      img {
+         width: 45px;
+         height: 45px;
+      }
+   }
+   
+   
+
+}
+
+
+
+/* GENERAL MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (max-width: 599px) {
+
+   .timeline ol,
+   .timeline ol li {
+      width: auto;
+   }
+
+   .timeline ol {
+      padding: 0;
+      transform: none !important;
+
+      li {
+         display: flex;
+         height: auto;
+         background: transparent;
+         flex-direction: column-reverse;
+
+         &:first-child {
+            margin-top: 25px;
+         }
+
+         &:not(:first-child) {
+            margin-left: auto;
+         }
+
+         div {
+            width: auto;
+            height: auto !important;
+            margin: 0 auto 25px;
+            position: static;
+            align-items: center;
+         }
+         time {
+            background-color: $blue-500;
+            margin-bottom: 0;
+            text-align: center;
+            padding-left:0;
+            border-radius:0;
+         }
+
+         &:nth-child(even) div {
+            transform: none;
+         }
+
+         &:nth-child(even),
+         &:nth-child(odd) {
+            div time {
+               left: 50%;
+               top: 100%;
+               transform: translateX(-50%);
+               border: none;
+               border-left: 1px solid white;
+               height: 25px;
+            }
+         }
+         &:last-child,
+         &:nth-last-child(2) div time,
+         &:not(:last-child)::after {
+            display: none;
+         }
+      }
+   }
+   .arrows {
+      display: none;
+   }
+}

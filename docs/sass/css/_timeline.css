@@ -1,0 +1,194 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Gotham";
+  src: url("./fonts/GothamBlack.woff2") format("woff2"), url("./fonts/GothamBlack.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url("./fonts/GothamBold.woff2") format("woff2"), url("./fonts/GothamBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url("./fonts/GothamBook-Italic.woff2") format("woff2"), url("./fonts/GothamBook-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url("./fonts/GothamBook.woff2") format("woff2"), url("./fonts/GothamBook.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+/* TIMELINE
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.timeline {
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+.timeline ol {
+  font-size: 0;
+  width: 100vw;
+  padding: 250px 0;
+  transition: all 1s;
+}
+.timeline ol li {
+  position: relative;
+  display: inline-block;
+  list-style-type: none;
+  width: 280px;
+  background: #649abf;
+  border-radius: 8px;
+}
+.timeline ol li:last-child {
+  width: 280px;
+}
+.timeline ol li:not(:first-child) {
+  margin-left: 14px;
+}
+.timeline ol li:not(:last-child) h6 {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 1px);
+  bottom: 0;
+  transform: translateY(-50%);
+  background-color: #114280;
+  color: #fff;
+  font-size: 24px;
+}
+.timeline ol li div {
+  position: absolute;
+  width: 280px;
+  padding: 8px;
+  white-space: normal;
+  display: flex;
+  align-items: start;
+}
+.timeline ol li div img {
+  width: auto;
+  max-height: 104px;
+}
+.timeline ol li div p {
+  color: #114280;
+  font-size: 14px;
+  text-align: left;
+  margin-bottom: 0;
+}
+.timeline ol li:nth-child(even) div {
+  top: -16px;
+  transform: translateY(-100%);
+  justify-content: flex-end;
+}
+.timeline ol li:nth-child(even) div time {
+  top: 100%;
+  border-width: 8px 8px 0 0;
+  border-color: white transparent transparent transparent;
+}
+.timeline ol li:nth-child(odd) div {
+  top: calc(100% + 16px);
+  justify-content: flex-start;
+}
+.timeline ol li time {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left;
+  color: #fff;
+  padding-left: 16px;
+}
+
+/* TIMELINE ARROWS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.arrows {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.arrows .arrow {
+  background-color: transparent;
+  border: none;
+}
+.arrows .arrow.arrow__prev {
+  margin-right: 20px;
+}
+.arrows .arrow.disabled {
+  opacity: 0.5;
+}
+.arrows .arrow img {
+  width: 45px;
+  height: 45px;
+}
+
+/* GENERAL MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (max-width: 599px) {
+  .timeline ol,
+.timeline ol li {
+    width: auto;
+  }
+
+  .timeline ol {
+    padding: 0;
+    transform: none !important;
+  }
+  .timeline ol li {
+    display: flex;
+    height: auto;
+    background: transparent;
+    flex-direction: column-reverse;
+  }
+  .timeline ol li:first-child {
+    margin-top: 25px;
+  }
+  .timeline ol li:not(:first-child) {
+    margin-left: auto;
+  }
+  .timeline ol li div {
+    width: auto;
+    height: auto !important;
+    margin: 0 auto 25px;
+    position: static;
+    align-items: center;
+  }
+  .timeline ol li time {
+    background-color: #649abf;
+    margin-bottom: 0;
+    text-align: center;
+    padding-left: 0;
+    border-radius: 0;
+  }
+  .timeline ol li:nth-child(even) div {
+    transform: none;
+  }
+  .timeline ol li:nth-child(even) div time, .timeline ol li:nth-child(odd) div time {
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    border: none;
+    border-left: 1px solid white;
+    height: 25px;
+  }
+  .timeline ol li:last-child, .timeline ol li:nth-last-child(2) div time, .timeline ol li:not(:last-child)::after {
+    display: none;
+  }
+
+  .arrows {
+    display: none;
+  }
+}
