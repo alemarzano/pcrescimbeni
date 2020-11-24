@@ -93,7 +93,8 @@ var comments = new Swiper('.comments-swiper', {
       centeredSlides: false
     },
     1366: {
-      slidesPerView: 4
+      slidesPerView: 4,
+      centeredSlides: false
     }
   }
 });

@@ -98,6 +98,7 @@ let comments = new Swiper('.comments-swiper', {
       },
       1366: {
          slidesPerView: 4,
+         centeredSlides: false,
       }
    }
 
