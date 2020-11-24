@@ -36,8 +36,7 @@
       keyboardControl: true,
       grabCursor: true,
       // pagination
-      pagination: '.swiper-pagination',
-      paginationClickable: true
+      pagination: '.swiper-pagination'
     });
   };
 
@@ -65,6 +64,36 @@ var loopSwiper = new Swiper('.equipo', {
     1024: {
       slidesPerView: 1,
       centeredSlides: true
+    }
+  }
+});
+var comments = new Swiper('.comments-swiper', {
+  loop: true,
+  spaceBetween: 30,
+  slidesPerView: 1,
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  centeredSlides: true,
+  a11y: true,
+  keyboardControl: true,
+  grabCursor: true,
+  // pagination
+  pagination: '.swiper-pagination',
+  paginationClickable: true,
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+      centeredSlides: false
+    },
+    1024: {
+      slidesPerView: 3,
+      centeredSlides: false
+    },
+    1366: {
+      slidesPerView: 4
     }
   }
 });

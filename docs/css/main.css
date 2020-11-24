@@ -66,18 +66,15 @@ h6 {
   font-size: 2em;
 }
 
-.valores__item--header {
-  height: 160px;
-  width: 100%;
+.comments .comment__header, .valores__item--header {
   position: relative;
   overflow: hidden;
   background-color: #16334a;
-  border-radius: 1.5em;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.valores__item--header img {
+.comments .comment__header img, .valores__item--header img {
   position: absolute;
   max-width: 560px;
   top: 50%;
@@ -90,7 +87,7 @@ h6 {
   transition: 0.3s ease-in-out;
   opacity: 0.5;
 }
-.valores__item--header::after {
+.comments .comment__header::after, .valores__item--header::after {
   mix-blend-mode: screen;
   display: block;
   content: "";
@@ -106,10 +103,17 @@ h6 {
   transition: 0.3s ease-in-out;
   opacity: 1;
 }
+
+.valores__item--header {
+  height: 160px;
+  width: 100%;
+  border-radius: 1.5em;
+}
 .valores__item--header h3 {
   position: relative;
   z-index: 10;
   color: #fff;
+  transition: 0.3s ease-in-out;
 }
 .valores__item:hover .valores__item--header img {
   filter: grayscale(0);
@@ -118,6 +122,9 @@ h6 {
 }
 .valores__item:hover .valores__item--header:after {
   opacity: 0;
+}
+.valores__item:hover .valores__item--header h3 {
+  text-shadow: 2px 2px 6px #12204891;
 }
 
 .practicas__item {
@@ -183,6 +190,52 @@ h6 {
   min-height: 96px;
 }
 
+.comments h3 {
+  position: absolute;
+  top: -48px;
+}
+.comments .quote {
+  position: absolute;
+  width: 48px;
+}
+.comments .quote.top {
+  top: -4px;
+  left: 0;
+}
+.comments .quote.bottom {
+  bottom: -4px;
+  right: 0;
+}
+.comments .comment__header {
+  width: 128px;
+  height: 128px;
+  position: relative;
+  margin-bottom: 16px;
+}
+.comments .comment__header img {
+  opacity: 1 !important;
+  max-width: 160px;
+}
+.comments .comment h5, .comments .comment p {
+  color: #fff;
+}
+.comments .comment__rol {
+  font-size: 12px;
+}
+.comments .comment__text {
+  font-size: 14px;
+}
+.comments .swiper-button-prev, .comments .swiper-button-next {
+  bottom: 6% !important;
+  top: inherit;
+}
+.comments .swiper-button-prev {
+  left: 40%;
+}
+.comments .swiper-button-next {
+  right: 40%;
+}
+
 .redes__item {
   margin: 16px 0;
 }
@@ -212,25 +265,24 @@ footer {
 
 @media (min-width: 31.25em) {
   .swiper-break .swiper-wrapper {
-    justify-content: center;
-    flex-wrap: wrap;
     width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
   }
   .swiper-break .swiper-slide {
-    /* a single column layout */
-    width: 50%;
-    margin: 8px;
+    width: auto;
+    overflow: visible;
   }
 }
 @media (min-width: 43.75em) {
-  .swiper-break .swiper-slide {
-    width: 30%;
-  }
   .swiper-break .swiper-slide .practicas__item {
     min-height: 240px;
     transition: 0.3s ease-in-out;
     max-height: 100%;
-    margin: 16px !important;
+    max-width: 100%;
+    margin: 0 !important;
   }
   .swiper-break .swiper-slide .practicas__item p {
     font-size: 20px;
@@ -438,7 +490,8 @@ h6 {
 }
 @media (min-width: 1024px) {
   .navbar {
-    padding-bottom: 88px;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
   .navbar .navbar-brand img {
     height: 48px;
@@ -471,6 +524,12 @@ h6 {
     font-size: 2.5em;
   }
 
+  .equipo .swiper-button-next {
+    right: 25%;
+  }
+  .equipo .swiper-button-prev {
+    left: 25%;
+  }
   .equipo__card {
     max-width: 400px;
     margin: auto;
@@ -484,5 +543,21 @@ h6 {
     height: 320px;
     align-items: center;
     justify-content: center;
+  }
+
+  .comments h3 {
+    color: #649abf !important;
+    left: 130px;
+    top: -44px;
+  }
+  .comments .quote {
+    width: 120px;
+  }
+  .comments .swiper-container {
+    padding-top: 140px !important;
+  }
+
+  footer img {
+    max-width: 60% !important;
   }
 }

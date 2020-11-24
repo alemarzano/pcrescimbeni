@@ -6,7 +6,7 @@
 
    var breakpoint = window.matchMedia('(min-width:31.25em)'); // keep track of swiper instances to destroy later
 
-   var mySwiper; 
+   var mySwiper;
 
    var breakpointChecker = function breakpointChecker() {
       // if larger viewport and multi-row layout needed
@@ -19,7 +19,7 @@
          // fire small viewport version of swiper
          return enableSwiper();
       }
-   }; 
+   };
 
 
    var enableSwiper = function enableSwiper() {
@@ -37,10 +37,9 @@
          keyboardControl: true,
          grabCursor: true,
          // pagination
-         pagination: '.swiper-pagination',
-         paginationClickable: true
+         pagination:'.swiper-pagination',
       });
-   }; 
+   };
 
    breakpoint.addListener(breakpointChecker); // kickstart
 
@@ -61,15 +60,51 @@ let loopSwiper = new Swiper('.equipo', {
    pagination: '.swiper-pagination',
    breakpoints: {
       640: {
-         slidesPerView:2,
+         slidesPerView: 2,
       },
-      1024:{
-         slidesPerView:1,
+      1024: {
+         slidesPerView: 1,
          centeredSlides: true,
       }
    }
 
 });
+
+let comments = new Swiper('.comments-swiper', {
+   loop: true,
+   spaceBetween: 30,
+   slidesPerView: 1,
+   // Navigation arrows
+   navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+   },
+
+   centeredSlides: true,
+   a11y: true,
+   keyboardControl: true,
+   grabCursor: true,
+   // pagination
+   pagination: '.swiper-pagination',
+   paginationClickable: true,
+   breakpoints: {
+      640: {
+         slidesPerView: 2,
+         centeredSlides: false
+      },
+      1024: {
+         slidesPerView: 3,
+         centeredSlides: false,
+      },
+      1366: {
+         slidesPerView: 4,
+      }
+   }
+
+});
+
+
+
 
 (function () {
 
